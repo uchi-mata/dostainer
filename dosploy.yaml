@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mluft-dos
+  labels:
+    app: mluft-dos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mluft-dos
+  template:
+    metadata:
+      labels:
+        app: mluft-dos
+    spec:
+      containers:
+      - image: dos
+        imagePullPolicy: Always
+        name: dos
+        command: ["forkbomb"] 
