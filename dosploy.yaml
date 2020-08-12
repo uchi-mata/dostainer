@@ -15,7 +15,10 @@ spec:
         app: mluft-dos
     spec:
       containers:
-      - image: dos
+      - image: uchimata/dos
         imagePullPolicy: Always
         name: dos
-        command: ["forkbomb"] 
+        # Argument defines sleep time after allocating memory in s
+        command: ["/app/fill-memory.sh", "5"] 
+        #command: ["/app/fill-disk.sh"] 
+        #command: ["/app/forkbomb.sh"] 
