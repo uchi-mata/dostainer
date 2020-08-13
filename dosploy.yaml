@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mluft-dos
+  name: dostainer
   labels:
-    app: mluft-dos
+    app: dostainer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mluft-dos
+      app: dostainer
   template:
     metadata:
       labels:
-        app: mluft-dos
+        app: dostainer
     spec:
       containers:
-      - image: uchimata/dos
+      - image: uchimata/dostainer
         imagePullPolicy: Always
         name: dos
         # Argument defines sleep time after allocating memory in s
