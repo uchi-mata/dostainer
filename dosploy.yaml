@@ -18,7 +18,18 @@ spec:
       - image: uchimata/dostainer
         imagePullPolicy: Always
         name: dos
-        # Argument defines sleep time after allocating memory in s
-        command: ["/app/fill-memory.sh", "5"] 
+        # Argument defines sleep time after allocating memory in s. Check with top -o %MEM
+        #command: ["/app/fill-memory.sh", "6"] 
+        #resources:
+        #  limits:
+        #    memory: "200Mi"
+        #  requests:
+        #    memory: "100Mi"
+        # Check with df -h
         #command: ["/app/fill-disk.sh"] 
-        #command: ["/app/forkbomb.sh"] 
+        #resources:
+        #  requests:
+        #    ephemeral-storage: "2Gi"
+        #  limits:
+        #    ephemeral-storage: "4Gi"
+        command: ["/app/forkbomb.sh"] 

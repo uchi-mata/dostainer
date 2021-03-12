@@ -7,4 +7,9 @@ This container contains three scripts to demonstrate resource exhaustion from wi
 
 Those exhaustion attacks work in many K8s environments as default settings do not include proper resource limits - and each of those can/does render one node useless (which will eventually upon pod failover spread through the cluster).
 
-Effective hardening measures will be added to this repository!
+Hardening measures are added to [dosploy.yaml](dosploy.yaml) and listed below:
+* [Memory Restrictions](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/#specify-a-memory-request-and-a-memory-limit)
+* [Ephemeral Storage Limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#local-ephemeral-storage)
+  * Keep in mind that storage limits may not apply to other volumes attached to a pod.
+* [Pod PID Limit](https://kubernetes.io/docs/concepts/policy/pid-limiting/#pod-pid-limits)
+  * The PID limit is configured on the `kubelet` level and applies to all pods, i.e. you cannot configure individual PID limits per pod. 
